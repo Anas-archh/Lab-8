@@ -97,7 +97,7 @@ public:
             current = current->next;
         }
 
-        if (current != nullptr) { // Target found
+        if (current != nullptr) {
             Node* newNode = new Node(newValue);
             newNode->next = current->next;
             current->next = newNode;
@@ -138,10 +138,9 @@ public:
             current = current->next;
         }
 
-        // If target is found and it's not the last node
         if (current != nullptr && current->next != nullptr) {
             Node* temp = current->next;
-            current->next = temp->next; // Or current->next->next
+            current->next = temp->next;    
             delete temp;
         }
     }
