@@ -22,16 +22,46 @@ public:
     // Function to insert an element at the rear
     void enqueue(int value) {
         // TODO: Implement enqueue logic
+        Node* newNode = new Node(value);
+
+        if (isEmpty()) {
+            front = rear = newNode;
+            return;
+        }
+        rear->next = newNode;
+        rear = newNode;
+
     }
 
     // Function to remove an element from the front
     void dequeue() {
         // TODO: Implement dequeue logic
+        if (isEmpty()) {
+            cout << "Queue is empty, cannot dequeue." << endl;
+            return;
+        }
+        Node* temp = front;
+        front = front->next;
+
+        if (front == nullptr) {
+            rear = nullptr;
+        }
+        delete temp;
     }
 
     // Function to print the queue
     void print_queue() {
         // TODO: Traverse and print all elements in queue
+        if (isEmpty()) {
+            cout << "Queue is empty." << endl;
+            return;
+        }
+        Node* current = front;
+        while (current != nullptr) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+        cout << endl;
     }
 
     // Helper: Check if queue is empty
@@ -68,3 +98,13 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
